@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        /* Updated color tokens */
+        --background: 0.0 0.0% 98.4%;
+        /* #FBFBFB */
+        --foreground: 232.0 36.6% 8.0%;
+        /* #0D0F1C */
+        --card: 0.0 0.0% 98.4%;
+        /* match background */
+        --card-foreground: 232.0 36.6% 8.0%;
+        /* match foreground */
+        --popover: 0.0 0.0% 98.4%;
+        /* match background */
+        --popover-foreground: 232.0 36.6% 8.0%;
+        /* match foreground */
+
+        --primary: 227.1 89.2% 52.9%;
+        /* #1C4AF2 */
+        --primary-foreground: 210.0 40.0% 98.0%;
+        /* keep original */
+
+        --secondary: 210.0 40.0% 96.0%;
+        /* keep original */
+        --secondary-foreground: 232.0 36.6% 8.0%;
+        /* use text color */
+
+        --muted: 210.0 13.0% 91.0%;
+        /* #E5E8EB */
+        --muted-foreground: 215.4 16.3% 46.9%;
+        /* keep original */
+
+        --accent: 210.0 40.0% 96.0%;
+        /* keep original */
+        --accent-foreground: 232.0 36.6% 8.0%;
+        /* use text color */
+
+        --destructive: 0.0 84.2% 60.2%;
+        /* keep original */
+        --destructive-foreground: 210.0 40.0% 98.0%;
+        /* keep original */
+
+        --border: 228.0 35.2% 86.1%;
+        /* #CFD4E8 */
+        --input: 214.3 31.8% 91.4%;
+        /* keep original */
+        --ring: 227.1 89.2% 52.9%;
+        /* match primary */
+
+        --radius: 0.75rem;
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+
+    body {
+        @apply bg-background text-foreground;
+        font-family: var(--font-space-grotesk), system-ui, sans-serif;
+    }
+}
