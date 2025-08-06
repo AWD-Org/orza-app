@@ -27,6 +27,31 @@ export interface ProductData {
   category?: string
 }
 
+// Extended product data for products page
+export interface ProductDataExtended extends ProductData {
+  category: string
+  price?: number
+  inStock?: boolean
+  featured?: boolean
+}
+
+// View mode types
+export type ViewMode = 'grid' | 'list'
+
+// Filter types
+export interface FilterOptions {
+  category?: string
+  priceRange?: [number, number]
+  inStock?: boolean
+}
+
+// Products page props
+export interface ProductsPageProps {
+  products: ProductDataExtended[]
+  categories: string[]
+  defaultView?: ViewMode
+}
+
 export interface SolutionData {
   id: string
   title: string
@@ -72,7 +97,7 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
 export interface CardProps {
   children: React.ReactNode
   className?: string
-  variant?: 'default' | 'bordered' | 'elevated' | 'transparent'
+  variant?: 'default' | 'bordered' | 'elevated' | 'transparent' | 'ghost'
 }
 
 export interface ContainerProps {

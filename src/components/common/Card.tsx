@@ -11,7 +11,8 @@ const Card: React.FC<CardProps> = ({
         default: 'bg-white',
         bordered: 'bg-white border border-[#E5E8EB]',
         elevated: 'bg-white shadow-sm',
-        transparent: 'bg-transparent'
+        transparent: 'bg-transparent',
+        ghost: 'bg-transparent hover:bg-[#F7FAFC] hover:text-[#0D0F1C] border border-transparent hover:border-[#E5E8EB]',
     }
 
     return (

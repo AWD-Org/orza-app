@@ -2,6 +2,7 @@
 'use client'
 
 import React from 'react'
+import { usePathname } from 'next/navigation'
 import { cn } from '@/lib/utils'
 import Container from './Container'
 import Logo from '../common/Logo'
@@ -9,28 +10,32 @@ import NavigationMenu from './NavigationMenu'
 import { ShoppingCartButton } from '../common/ShoppingCartButton'
 
 const navItems = [
-    { label: 'Products', href: '#products' },
+    { label: 'Products', href: '/products' },
     { label: 'Solutions', href: '#solutions' },
     { label: 'Cases', href: '#cases' },
     { label: 'Company', href: '#company' },
     { label: 'Contact', href: '#contact' },
 ]
 
-const Header: React.FC<{ className?: string }> = ({ className }) => (
-    <header className={cn('relative mb-4 mt-2', className)}>
-        <Container maxWidth="full">
-            <div className="flex items-center justify-between h-16">
-                <Logo />
+const Header: React.FC<{ className?: string }> = ({ className }) => {
+    const pathname = usePathname()
+    
+    return (
+        <header className={cn('relative mb-4 mt-2', className)}>
+            <Container maxWidth="full">
+                <div className="flex items-center justify-between h-16">
+                    <Logo />
 
-                <div className="flex items-center">
-                    <NavigationMenu items={navItems} />
+                    <div className="flex items-center">
+                        <NavigationMenu items={navItems} currentPath={pathname} />
 
-                    {/* Shopping bag */}
-                    <ShoppingCartButton />
+                        {/* Shopping bag */}
+                        <ShoppingCartButton />
+                    </div>
                 </div>
-            </div>
-        </Container>
-    </header>
-)
+            </Container>
+        </header>
+    )
+}
 
 export default Header

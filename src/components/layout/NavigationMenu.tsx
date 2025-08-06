@@ -7,7 +7,11 @@ import { cn } from '@/lib/utils'
 import { motion, AnimatePresence } from 'framer-motion'
 
 interface NavigationItem { label: string; href: string }
-interface Props { items: NavigationItem[]; className?: string }
+interface Props { 
+  items: NavigationItem[]; 
+  currentPath?: string;
+  className?: string 
+}
 
 const backdrop = {
     hidden: { opacity: 0 },
@@ -19,8 +23,14 @@ const drawer = {
     visible: { x: 0 }
 }
 
-const NavigationMenu: React.FC<Props> = ({ items, className }) => {
+const NavigationMenu: React.FC<Props> = ({ items, currentPath, className }) => {
     const [open, setOpen] = useState(false)
+    
+    const isActive = (href: string) => {
+        if (href.startsWith('#')) return false // Para anchors, no marcar como activo
+        return currentPath === href
+    }
+    
     return (
         <>
             {/* Desktop */}
@@ -29,7 +39,12 @@ const NavigationMenu: React.FC<Props> = ({ items, className }) => {
                     <a
                         key={item.href}
                         href={item.href}
-                        className="text-sm font-medium text-[#0D0F1C] hover:text-[#1C4AF2] transition-colors"
+                        className={cn(
+                            'text-sm font-medium transition-colors font-space-grotesk',
+                            isActive(item.href) 
+                                ? 'text-[#1C4AF2] font-bold' 
+                                : 'text-[#0D0F1C] hover:text-[#1C4AF2]'
+                        )}
                     >
                         {item.label}
                     </a>
@@ -79,7 +94,12 @@ const NavigationMenu: React.FC<Props> = ({ items, className }) => {
                                 <a
                                     key={item.href}
                                     href={item.href}
-                                    className="block py-2 text-base font-medium text-[#0D0F1C] hover:text-[#1C4AF2] transition-colors"
+                                    className={cn(
+                                        'block py-2 text-base font-medium transition-colors font-space-grotesk',
+                                        isActive(item.href) 
+                                            ? 'text-[#1C4AF2] font-bold' 
+                                            : 'text-[#0D0F1C] hover:text-[#1C4AF2]'
+                                    )}
                                     onClick={() => setOpen(false)}
                                 >
                                     {item.label}

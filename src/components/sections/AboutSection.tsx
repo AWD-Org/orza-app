@@ -78,6 +78,8 @@ const AboutSection: React.FC<AboutSectionProps> = ({ className }) => {
                                     src={image}
                                     alt={`Technology ${index + 1}`}
                                     className="w-full h-full object-cover"
+                                    width={400}
+                                    height={300}
                                 />
                             </motion.div>
                         ))}

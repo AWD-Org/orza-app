@@ -1,0 +1,11 @@
+// Products page components
+export { default as ProductsPage } from './ProductsPage'
+export { default as ProductsPageHeader } from './ProductsPageHeader'
+export { default as ProductGrid } from './ProductGrid'
+export { default as ProductList } from './ProductList'
+export { default as ProductCardEnhanced } from './ProductCardEnhanced'
+export { default as ProductListItem } from './ProductListItem'
+export { default as SearchBar } from './SearchBar'
+export { default as CategorySelect } from './CategorySelect'
+export { default as ViewToggle } from './ViewToggle'
+export { default as PaginationWrapper } from './PaginationWrapper'
